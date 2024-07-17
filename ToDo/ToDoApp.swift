@@ -11,7 +11,10 @@ import SwiftUI
 struct ToDoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ToDoListView()
+                .onAppear() {
+                    print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path)
+                }
         }
     }
 }
